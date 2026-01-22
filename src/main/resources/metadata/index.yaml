@@ -1,4 +1,4 @@
-group: io.kestra.plugin.notifications.qq
+group: io.kestra.plugin.tencent
 name: "qq"
 title: "Tencent QQ / IM"
 description: "Tasks that send execution notifications to Tencent Cloud IM / QQ."
