@@ -11,6 +11,7 @@ import io.kestra.core.models.tasks.VoidOutput;
 import io.kestra.core.runners.RunContext;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +50,7 @@ import java.net.URI;
 
                 errors:
                   - id: qq_alert
-                    type: io.kestra.plugin.notifications.qq.QQIncomingWebhook
+                    type: io.kestra.plugin.qq.QQIncomingWebhook
                     url: "https://im.tencentcloudapi.com/v4/openim/sendmsg"
                     token: "{{ secret('TENCENT_IM_TOKEN') }}"
                     payload: |
@@ -69,7 +70,7 @@ public class QQIncomingWebhook extends AbstractQQConnection {
         description = "Tencent Cloud IM REST endpoint used to send the message"
     )
     @PluginProperty(dynamic = true)
-    @NotBlank
+    @NotNull
     protected String url;
 
     @Schema(

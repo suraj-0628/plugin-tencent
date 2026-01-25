@@ -29,7 +29,7 @@ import java.util.Map;
 
                 tasks:
                   - id: send_qq_alert
-                    type: io.kestra.plugin.notifications.qq.QQExecution
+                    type: io.kestra.plugin.qq.QQExecution
                     url: "https://console.tim.qq.com/v4/openim/sendmsg?sdkappid=xxx&identifier=admin&usersig=xxx&random=9999&contenttype=json"
                     recipientIds:
                       - "QQ_USER_ID_1"
