@@ -1,0 +1,8 @@
+group: io.kestra.plugin.tencent
+name: "qq"
+title: "Tencent QQ / IM"
+description: "Tasks for sending execution-based notifications to Tencent Cloud IM / QQ."
+body: "Send execution-triggered alerts from Kestra to Tencent Cloud IM / QQ using the Tencent IM REST API. These tasks are intended for flow-trigger notifications and include execution metadata such as execution ID, namespace, flow name, status, duration, and failed task details when applicable."
+videos: []
+createdBy: "Kestra Core Team"
+managedBy: "Kestra Core Team"
