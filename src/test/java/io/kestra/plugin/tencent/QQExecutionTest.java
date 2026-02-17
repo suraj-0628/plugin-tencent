@@ -1,8 +1,9 @@
-package io.kestra.plugin.notifications.qq;
+package io.kestra.plugin.tencent;
 
 import io.kestra.core.models.property.Property;
 import io.kestra.core.runners.RunContext;
 import io.kestra.core.runners.RunContextFactory;
+import io.kestra.plugin.tencent.FakeQQExecution;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import okhttp3.mockwebserver.MockResponse;

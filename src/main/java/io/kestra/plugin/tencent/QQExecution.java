@@ -1,11 +1,11 @@
-package io.kestra.plugin.notifications.qq;
+package io.kestra.plugin.tencent;
 
 import io.kestra.core.models.annotations.Example;
 import io.kestra.core.models.annotations.Plugin;
 import io.kestra.core.models.property.Property;
 import io.kestra.core.models.tasks.VoidOutput;
-import io.kestra.plugin.notifications.ExecutionInterface;
-import io.kestra.plugin.notifications.services.ExecutionService;
+import io.kestra.core.plugins.notifications.ExecutionInterface;
+import io.kestra.core.plugins.notifications.ExecutionService;
 
 import io.kestra.core.runners.RunContext;
 import lombok.*;
@@ -50,17 +50,16 @@ import java.util.Map;
 public class QQExecution extends QQTemplate implements ExecutionInterface {
 
     @Builder.Default
-    private final Property<String> executionId =
-        Property.ofExpression("{{ execution.id }}");
+    private final Property<String> executionId = Property.ofExpression("{{ execution.id }}");
 
     private Property<String> customMessage;
+
     private Property<Map<String, Object>> customFields;
 
     @Override
     public VoidOutput run(RunContext runContext) throws Exception {
         this.templateUri = Property.ofValue("qq-execution.peb");
-        this.templateRenderMap =
-            Property.ofValue(ExecutionService.executionMap(runContext, this));
+        this.templateRenderMap = Property.ofValue(ExecutionService.executionMap(runContext, this));
         return super.run(runContext);
     }
 }

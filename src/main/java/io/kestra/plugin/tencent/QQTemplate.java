@@ -1,4 +1,4 @@
-package io.kestra.plugin.notifications.qq;
+package io.kestra.plugin.tencent;
 
 import io.kestra.core.http.HttpRequest;
 import io.kestra.core.http.HttpResponse;

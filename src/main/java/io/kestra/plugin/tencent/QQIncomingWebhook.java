@@ -1,4 +1,4 @@
-package io.kestra.plugin.notifications.qq;
+package io.kestra.plugin.tencent;
 
 import io.kestra.core.http.HttpRequest;
 import io.kestra.core.http.HttpResponse;
@@ -60,8 +60,7 @@ import java.net.URI;
                       }
                 """
         )
-    },
-    aliases = "io.kestra.plugin.notifications.qq.QQIncomingWebhook"
+    }
 )
 public class QQIncomingWebhook extends AbstractQQConnection {
 
@@ -69,9 +68,8 @@ public class QQIncomingWebhook extends AbstractQQConnection {
         title = "Tencent IM REST API endpoint",
         description = "Tencent Cloud IM REST endpoint used to send the message"
     )
-    @PluginProperty(dynamic = true)
     @NotNull
-    protected String url;
+    protected Property<String> url;
 
     @Schema(
         title = "Tencent IM authentication token",
@@ -83,17 +81,15 @@ public class QQIncomingWebhook extends AbstractQQConnection {
         title = "Request payload",
         description = "Raw JSON payload sent to the Tencent IM API"
     )
+    @NotNull
     protected Property<String> payload;
 
     @Override
     public VoidOutput run(RunContext runContext) throws Exception {
-        String rUrl = runContext.render(this.url);
-        String rPayload = runContext.render(this.payload)
-            .as(String.class)
-            .orElseThrow();
+        String rUrl = runContext.render(this.url).as(String.class).orElseThrow();
+        String rPayload = runContext.render(this.payload).as(String.class).orElseThrow();
 
-        try (HttpClient client =
-                 new HttpClient(runContext, httpClientConfigurationWithOptions())) {
+        try (HttpClient client = new HttpClient(runContext, httpClientConfigurationWithOptions())) {
 
             HttpRequest.HttpRequestBuilder requestBuilder =
                 createRequestBuilder(runContext)
@@ -101,11 +97,7 @@ public class QQIncomingWebhook extends AbstractQQConnection {
                     .method("POST")
                     .addHeader("Content-Type", "application/json");
 
-            runContext.render(token)
-                .as(String.class)
-                .ifPresent(t ->
-                    requestBuilder.addHeader("Authorization", "Bearer " + t)
-                );
+            runContext.render(token).as(String.class).ifPresent(t -> requestBuilder.addHeader("Authorization", "Bearer " + t));
 
             HttpRequest request = requestBuilder
                 .body(HttpRequest.StringRequestBody.builder()

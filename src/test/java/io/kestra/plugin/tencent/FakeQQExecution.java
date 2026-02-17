@@ -1,4 +1,4 @@
-package io.kestra.plugin.notifications.qq;
+package io.kestra.plugin.tencent;
 
 import io.kestra.core.models.property.Property;
 import io.kestra.core.models.tasks.VoidOutput;

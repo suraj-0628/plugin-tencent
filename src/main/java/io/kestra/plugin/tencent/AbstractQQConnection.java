@@ -1,4 +1,4 @@
-package io.kestra.plugin.notifications.qq;
+package io.kestra.plugin.tencent;
 
 import io.kestra.core.exceptions.IllegalVariableEvaluationException;
 import io.kestra.core.http.HttpRequest;
@@ -27,11 +27,9 @@ public abstract class AbstractQQConnection extends Task implements RunnableTask<
     @PluginProperty(dynamic = true)
     protected RequestOptions options;
 
-    protected HttpConfiguration httpClientConfigurationWithOptions()
-        throws IllegalVariableEvaluationException {
+    protected HttpConfiguration httpClientConfigurationWithOptions() {
 
-        HttpConfiguration.HttpConfigurationBuilder builder =
-            HttpConfiguration.builder()
+        HttpConfiguration.HttpConfigurationBuilder builder = HttpConfiguration.builder()
                 .defaultCharset(Property.ofValue(StandardCharsets.UTF_8));
 
         if (options != null) {
