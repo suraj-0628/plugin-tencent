@@ -1,4 +1,4 @@
-package io.kestra.plugin.tencent;
+package io.kestra.plugin.tencent.qq;
 
 import io.kestra.core.models.annotations.Example;
 import io.kestra.core.models.annotations.Plugin;

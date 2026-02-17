@@ -1,6 +1,6 @@
 @PluginSubGroup(
-    description = "Tasks that send notifications to Tencent QQ. Provide the Tencent QQ webhook URL, token and message content to post notifications or alerts from Kestra workflows.",
-    categories = PluginSubGroup.PluginCategory.ALERTING
+    description = "Tasks that integrate with Tencent services. It includes tasks for sending execution-based notifications and alerts using Tencent Cloud communication platforms.",
+    categories = PluginSubGroup.PluginCategory.BUSINESS
 )
 package io.kestra.plugin.tencent;
 

@@ -1,6 +1,7 @@
 package io.kestra.plugin.tencent;
 
 import io.kestra.core.models.property.Property;
+import io.kestra.plugin.tencent.qq.QQIncomingWebhook;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.Test;
