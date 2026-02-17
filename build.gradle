@@ -49,9 +49,6 @@ dependencies {
     annotationProcessor group: "io.kestra", name: "processor", version: kestraVersion
     compileOnly group: "io.kestra", name: "core", version: kestraVersion
     compileOnly group: "io.kestra", name: "script", version: kestraVersion
-
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.12.0"
-
 }
 
 
@@ -99,6 +96,7 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-engine"
     testImplementation "org.hamcrest:hamcrest"
     testImplementation "org.hamcrest:hamcrest-library"
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.12.0"
 }
 
 /**********************************************************************************************************************\
@@ -107,8 +105,6 @@ dependencies {
 dependencies {
     testImplementation enforcedPlatform("io.kestra:platform:$kestraVersion")
     testImplementation "io.qameta.allure:allure-junit5"
-
-
 }
 
 configurations {
